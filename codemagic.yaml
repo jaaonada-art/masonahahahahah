@@ -7,5 +7,5 @@ workflows:
       - name: Run macOS commands
         script: |
           sw_vers
-          ls -la
-          # Put your commands below this line
+          sleep 3600
+
