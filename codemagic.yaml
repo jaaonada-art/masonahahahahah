@@ -8,6 +8,7 @@ workflows:
         script: |
           brew install cloudflared
           pip3 install websockify
-          git clone https://github.com
-          websockify --web=./noVNC 6080 localhost:5900 &
-          cloudflared tunnel --url http://localhost:6080
+          git clone --depth 1 https://github.com /tmp/noVNC
+          websockify --web=/tmp/noVNC 127.0.0.1:6080 127.0.0.1:5900 &
+          sleep 3
+          cloudflared tunnel --url http://127.0.0.1:6080
